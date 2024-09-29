@@ -1,3 +1,15 @@
-[gd_scene format=3 uid="uid://bgusloxtu0bb0"]
+[gd_scene load_steps=2 format=3 uid="uid://bgusloxtu0bb0"]
+
+[ext_resource type="PackedScene" uid="uid://dw3ne5jrcmsth" path="res://scenes/character_body_2d.tscn" id="1_gimuw"]
 
 [node name="world" type="Node2D"]
+rotation = 6.28319
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("1_gimuw")]
+motion_mode = 1
+
+[node name="AnimatedSprite2D" parent="CharacterBody2D" index="1"]
+position = Vector2(72, 159)
+scale = Vector2(3.79167, 3.79167)
+
+[editable path="CharacterBody2D"]
