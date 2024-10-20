@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=4 uid="uid://bgusloxtu0bb0"]
+[gd_scene load_steps=8 format=4 uid="uid://c8ox5sg13wbm5"]
 
 [ext_resource type="PackedScene" uid="uid://dw3ne5jrcmsth" path="res://scenes/character_body_2d.tscn" id="1_gimuw"]
 [ext_resource type="Texture2D" uid="uid://ccyyttmr5iyd1" path="res://assets/tiles/Texture/TX Tileset Stone Ground.png" id="2_njfvc"]
@@ -479,17 +479,19 @@ rotation = 6.28319
 [node name="arena" type="Node2D" parent="."]
 
 [node name="Camera2D" type="Camera2D" parent="arena" node_paths=PackedStringArray("player")]
-position = Vector2(212.001, 332.999)
+z_index = 3
+position = Vector2(87.0006, 137)
 process_callback = 0
 position_smoothing_enabled = true
 script = ExtResource("4_wm5ck")
 player = NodePath("../CharacterBody2D")
 
 [node name="CharacterBody2D" parent="arena" instance=ExtResource("1_gimuw")]
+texture_filter = 1
 motion_mode = 1
 
 [node name="AnimatedSprite2D" parent="arena/CharacterBody2D" index="1"]
-position = Vector2(72, 159)
+position = Vector2(5.00067, 65.9993)
 scale = Vector2(3.79167, 3.79167)
 
 [node name="ground_TileMapLayer" type="TileMapLayer" parent="arena"]
