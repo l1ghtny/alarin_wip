@@ -1,6 +1,6 @@
 [gd_scene load_steps=31 format=3 uid="uid://dw3ne5jrcmsth"]
 
-[ext_resource type="Script" path="res://scenes/character_body_2d.gd" id="1_r6rwg"]
+[ext_resource type="Script" path="res://scripts/character_body_2d.gd" id="1_r6rwg"]
 [ext_resource type="Texture2D" uid="uid://j1m8hbs3sonm" path="res://assets/character/Warrior_2/Attack_1.png" id="2_t0ftc"]
 [ext_resource type="Texture2D" uid="uid://d2rj47guqsl21" path="res://assets/character/Warrior_2/Attack_2.png" id="3_3pbh2"]
 [ext_resource type="Texture2D" uid="uid://cx3ikcp7nur4q" path="res://assets/character/Warrior_2/Idle.png" id="4_8fp84"]
