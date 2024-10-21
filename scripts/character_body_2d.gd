@@ -7,6 +7,9 @@ const JUMP_VELOCITY: float = -400.0
 
 @onready
 var animated_sprite = $AnimatedSprite2D
+@onready
+var test = $CollisionShape2D
+
 
 
 func _physics_process(delta: float) -> void:
