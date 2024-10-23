@@ -1,8 +1,7 @@
 extends CharacterBody2D
 
 
-const SPEED: float         = 30000.0
-const JUMP_VELOCITY: float = -400.0
+const speed: float = 20000.0
 
 
 @onready
@@ -19,19 +18,19 @@ func _physics_process(delta: float) -> void:
 	var direction_horizontal := Input.get_axis("move_left", "move_right")
 	var direction_vertical := Input.get_axis('move_up', 'move_down')
 	if direction_horizontal:
-		velocity.x = direction_horizontal * SPEED * delta
+		velocity.x = direction_horizontal * speed * delta
 		if velocity.x > 0:
 			animated_sprite.flip_h = false
 		else:
 			animated_sprite.flip_h = true
 
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+		velocity.x = move_toward(velocity.x, 0, speed)
 
 	if direction_vertical:
-		velocity.y = direction_vertical * SPEED * delta
+		velocity.y = direction_vertical * speed * delta
 	else:
-		velocity.y = move_toward(direction_vertical, 0, SPEED)
+		velocity.y = move_toward(direction_vertical, 0, speed)
 
 	if velocity:
 		animated_sprite.animation = 'run'
@@ -39,4 +38,4 @@ func _physics_process(delta: float) -> void:
 		animated_sprite.animation = 'idle'
 
 
-	move_and_slide()
+	move_and_collide(velocity * delta)

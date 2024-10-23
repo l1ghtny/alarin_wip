@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://dxvdv5qvhwued" path="res://assets/character/Warrior_2/Run+Attack.png" id="6_hqy1i"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_htp11"]
+radius = 6.04962
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ki0a4"]
 atlas = ExtResource("2_t0ftc")
@@ -118,7 +119,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"attack_1",
-"speed": 4.0
+"speed": 6.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -135,7 +136,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"attack_2",
-"speed": 4.0
+"speed": 6.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -178,7 +179,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"run",
-"speed": 6.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -195,18 +196,23 @@ animations = [{
 }],
 "loop": true,
 "name": &"run_attack",
-"speed": 4.0
+"speed": 6.0
 }]
 
-[node name="player_body_2d" type="CharacterBody2D"]
+[node name="player_body_2d" type="CharacterBody2D" groups=["player"]]
 position = Vector2(156, 77)
+collision_layer = 3
+collision_mask = 3
 script = ExtResource("1_r6rwg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(13, 4)
+scale = Vector2(2.485, 2.485)
 shape = SubResource("CircleShape2D_htp11")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(14, -13)
 sprite_frames = SubResource("SpriteFrames_d8vwe")
-animation = &"run_attack"
+animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.574641
+frame_progress = 0.523067
