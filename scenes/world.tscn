@@ -483,6 +483,9 @@ rotation = 6.28319
 position = Vector2(78.0009, 205)
 scale = Vector2(1.58, 1.58)
 
+[node name="AnimatedSprite2D" parent="arena/player_body_2d" index="1"]
+frame_progress = 0.0
+
 [node name="Camera2D" parent="arena/player_body_2d" instance=ExtResource("5_6jsj0")]
 position = Vector2(11.3924, 2.53139)
 scale = Vector2(0.632911, 0.632911)
@@ -497,6 +500,13 @@ script = null
 
 [node name="enemy_body2d" parent="arena" instance=ExtResource("5_6drok")]
 position = Vector2(390.001, 166.998)
+
+[node name="AnimatedSprite2D" parent="arena/enemy_body2d" index="1"]
+frame = 0
+frame_progress = 0.0
+
+[node name="CollisionShape2D" parent="arena/enemy_body2d/Area2D" index="0"]
+visible = true
 
 [node name="ground_TileMapLayer" type="TileMapLayer" parent="arena"]
 z_index = -1
