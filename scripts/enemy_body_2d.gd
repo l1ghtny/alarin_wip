@@ -8,6 +8,7 @@ extends CharacterBody2D
 var player = null
 var start_position :Vector2
 var end_positionn :Vector2
+var last_direction :bool
 
 func animate():
 	if velocity:
@@ -15,15 +16,18 @@ func animate():
 	else: 
 		animated_sprite.animation = 'idle'
 		
+	if velocity.x > 0:
+		animated_sprite.flip_h = false
+		last_direction = animated_sprite.flip_h
+	elif velocity.x == 0:
+		animated_sprite.flip_h = last_direction
+	else:
+		animated_sprite.flip_h = true
+		last_direction = animated_sprite.flip_h
 		
 func move_to_player(delta: float):
 	if player:
 		velocity = position.direction_to(player.position) * speed * delta
-
-		if (player.position.x - position.x) > 0:
-			animated_sprite.flip_h = false
-		else:
-			animated_sprite.flip_h = true
 
 	else:
 		velocity = Vector2.ZERO
