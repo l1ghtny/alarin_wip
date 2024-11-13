@@ -1,13 +1,12 @@
-[gd_scene load_steps=31 format=3 uid="uid://dw3ne5jrcmsth"]
+[gd_scene load_steps=33 format=3 uid="uid://dw3ne5jrcmsth"]
 
 [ext_resource type="Script" path="res://scripts/character_body_2d.gd" id="1_r6rwg"]
+[ext_resource type="PackedScene" uid="uid://d31j8jrurwsti" path="res://scenes/camera_2d.tscn" id="2_o6c5l"]
 [ext_resource type="Texture2D" uid="uid://j1m8hbs3sonm" path="res://assets/character/Warrior_2/Attack_1.png" id="2_t0ftc"]
 [ext_resource type="Texture2D" uid="uid://d2rj47guqsl21" path="res://assets/character/Warrior_2/Attack_2.png" id="3_3pbh2"]
 [ext_resource type="Texture2D" uid="uid://cx3ikcp7nur4q" path="res://assets/character/Warrior_2/Idle.png" id="4_8fp84"]
 [ext_resource type="Texture2D" uid="uid://8e2nqrxvs2eg" path="res://assets/character/Warrior_2/Run.png" id="5_gag3j"]
 [ext_resource type="Texture2D" uid="uid://dxvdv5qvhwued" path="res://assets/character/Warrior_2/Run+Attack.png" id="6_hqy1i"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_htp11"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0fcw0"]
 atlas = ExtResource("2_t0ftc")
@@ -191,14 +190,37 @@ animations = [{
 "speed": 6.0
 }]
 
-[node name="player_body_2d" type="CharacterBody2D"]
-position = Vector2(156, 77)
+[sub_resource type="CircleShape2D" id="CircleShape2D_htp11"]
+radius = 19.2354
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rucgc"]
+size = Vector2(38, 49)
+
+[node name="player_body_2d" type="CharacterBody2D" groups=["player"]]
+position = Vector2(5, -24)
 script = ExtResource("1_r6rwg")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_htp11")
+[node name="Camera2D" parent="." instance=ExtResource("2_o6c5l")]
+position = Vector2(0, 0)
+zoom = Vector2(2, 2)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_d8vwe")
 animation = &"idle"
 autoplay = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-5, 30)
+shape = SubResource("CircleShape2D_htp11")
+
+[node name="HurtBox" type="Area2D" parent="."]
+light_mask = 2
+visibility_layer = 2
+position = Vector2(-5, 30)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="HurtBox"]
+position = Vector2(0, -5.5)
+shape = SubResource("RectangleShape2D_rucgc")
+
+[connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]
+[connection signal="area_exited" from="HurtBox" to="." method="_on_hurt_box_area_exited"]
