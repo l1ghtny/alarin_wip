@@ -3,14 +3,15 @@ extends CharacterBody2D
 
 const speed: float = 20000.0
 
+@export var player_max_health := 100
+@onready var player_current_health := player_max_health
 
 @onready
 var animated_sprite = $AnimatedSprite2D
 @onready
 var test = $CollisionShape2D
 
-@export var player_max_health := 100
-@onready var player_current_health := player_max_health
+
 
 
 func _physics_process(delta: float) -> void:
@@ -46,7 +47,10 @@ func _physics_process(delta: float) -> void:
 # У такого подхода есть проблема: повторная атака не регистрируется, надо что-то с этим делать
 func _on_hurt_box_area_entered(area: Area2D) -> void:
 	if area.visible:
-		print('hit')
+		if area.is_in_group('damage'):
+			print('hit for area_damage')
+			area.damage = 0
+			
 
 
 func _on_hurt_box_area_exited(area: Area2D) -> void:
