@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=4 uid="uid://c8ox5sg13wbm5"]
 
-[ext_resource type="PackedScene" uid="uid://dw3ne5jrcmsth" path="res://scenes/character_body_2d.tscn" id="1_gimuw"]
+[ext_resource type="PackedScene" uid="uid://dw3ne5jrcmsth" path="res://scenes/player.tscn" id="1_gimuw"]
 [ext_resource type="Texture2D" uid="uid://ccyyttmr5iyd1" path="res://assets/tiles/Texture/TX Tileset Stone Ground.png" id="2_njfvc"]
 [ext_resource type="Texture2D" uid="uid://bhl64r0iwy5cf" path="res://assets/tiles/Texture/TX Tileset Grass.png" id="3_x1igo"]
 [ext_resource type="PackedScene" uid="uid://cl4lkmkr6efcn" path="res://scenes/enemy_body_2d.tscn" id="5_6drok"]
