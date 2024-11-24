@@ -27,9 +27,6 @@ func process_physics(delta: float) -> State:
 	else:
 		parent.velocity = parent.velocity.lerp(Vector2.ZERO, parent.deceleration * delta)
 		
-		if abs(parent.velocity.x) < VELOCITY_THRESHOLD and abs(parent.velocity.y) < VELOCITY_THRESHOLD:
-			parent.velocity = Vector2.ZERO
-		
 	if parent.velocity.x > 0:
 		parent.animated_sprite.flip_h = false
 	else:
