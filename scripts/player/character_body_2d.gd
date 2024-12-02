@@ -6,10 +6,14 @@ const acceleration: float = 15
 const deceleration: float = 10
 
 @export var player_max_health := 100
+@export var move_keys: Array[String]
 @onready var player_current_health := player_max_health
 
-@onready var animated_sprite = $animations
+@onready var animated_sprite = $"visual things/animations"
 @onready var state_machine = $StateMachine
+@onready var attack_area = $attack_area
+
+var under_attack: bool
 
 func _ready() -> void:
 	# Initialize the state machine, passing a reference of the player to the states,
@@ -23,20 +27,18 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func _physics_process(delta: float) -> void:
 	state_machine.process_physics(delta)
+	
 
 
 func _process(delta: float) -> void:
 	state_machine.process_frame(delta)
 
 
-# У такого подхода есть проблема: повторная атака не регистрируется, надо что-то с этим делать
 func _on_hurt_box_area_entered(area: Area2D) -> void:
-	if area.visible:
-		if area.is_in_group('damage'):
-			print('hit for area_damage')
-			area.damage = 0
-			
+	under_attack = true
+	pass # Replace with function body.
 
 
 func _on_hurt_box_area_exited(area: Area2D) -> void:
+	under_attack = false
 	pass # Replace with function body.

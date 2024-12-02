@@ -3,6 +3,8 @@ extends State
 @export var attack_state: State
 @export var idle_state: State
 
+var last_direction :bool
+
 const VELOCITY_THRESHOLD: float = 1  # Very small threshold for considering velocity as zero
 
 
@@ -27,10 +29,18 @@ func process_physics(delta: float) -> State:
 	else:
 		parent.velocity = parent.velocity.lerp(Vector2.ZERO, parent.deceleration * delta)
 		
+		if abs(parent.velocity.x) < VELOCITY_THRESHOLD and abs(parent.velocity.y) < VELOCITY_THRESHOLD:
+			parent.velocity = Vector2.ZERO
+	
+	
 	if parent.velocity.x > 0:
 		parent.animated_sprite.flip_h = false
+		last_direction = parent.animated_sprite.flip_h
+	elif parent.velocity.x == 0:
+		parent.animated_sprite.flip_h = last_direction
 	else:
 		parent.animated_sprite.flip_h = true
+		last_direction = parent.animated_sprite.flip_h
 	
 	
 	parent.move_and_slide()
