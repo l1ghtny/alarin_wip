@@ -1,7 +1,7 @@
 class_name PlayerInteractions
 extends Node2D
 
-@onready var player := get_parent()
+@onready var player: CharacterBody2D = get_parent()
 
 
 func _ready() -> void:
