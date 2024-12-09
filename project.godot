@@ -67,6 +67,11 @@ basic_attack={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="main_physics_layer"
+2d_physics/layer_9="enemy_layer"
+
 [physics]
 
 2d/physics_engine="GodotPhysics2D"

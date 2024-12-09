@@ -23,6 +23,8 @@ func process_physics(delta: float) -> State:
 	var down := Input.is_action_pressed("move_down")
  
 	var target_direction := Vector2(int(right) - int(left), int(down) - int(up)).normalized()
+
+	parent.direction = target_direction
 	
 	if target_direction != Vector2.ZERO:
 		parent.velocity = parent.velocity.lerp(target_direction * parent.max_speed, parent.acceleration * delta)
@@ -42,7 +44,8 @@ func process_physics(delta: float) -> State:
 		parent.animated_sprite.flip_h = true
 		last_direction = parent.animated_sprite.flip_h
 	
-	
+	parent.set_direction()
+
 	parent.move_and_slide()
 	
 	if parent.velocity:
