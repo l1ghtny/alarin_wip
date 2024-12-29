@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://d31j8jrurwsti"]
 
-[ext_resource type="Script" path="res://scripts/camera_2d.gd" id="1_eg2xd"]
+[ext_resource type="Script" path="res://scripts/player/camera_2d.gd" id="1_eg2xd"]
 
 [node name="Camera2D" type="Camera2D"]
 z_index = 3
