@@ -1,8 +1,7 @@
-[gd_scene load_steps=29 format=3 uid="uid://cl4lkmkr6efcn"]
+[gd_scene load_steps=28 format=3 uid="uid://cl4lkmkr6efcn"]
 
 [ext_resource type="Script" path="res://scripts/enemy_body_2d.gd" id="1_vtjv3"]
 [ext_resource type="Texture2D" uid="uid://do5slhdh86uji" path="res://assets/enemies/Wolf_Ver1-sheet.png" id="2_w5d7h"]
-[ext_resource type="Script" path="res://scripts/hit_box.gd" id="3_ih1im"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3jtsp"]
 radius = 79.0138
@@ -211,7 +210,6 @@ visible = false
 light_mask = 2
 visibility_layer = 2
 position = Vector2(29.9995, 49.501)
-script = ExtResource("3_ih1im")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
 position = Vector2(0, -28.5)
