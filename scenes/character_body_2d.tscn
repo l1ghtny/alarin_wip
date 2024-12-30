@@ -230,7 +230,6 @@ script = ExtResource("1_r6rwg")
 [node name="Camera2D" parent="." instance=ExtResource("2_o6c5l")]
 position = Vector2(0, 0)
 zoom = Vector2(2, 2)
-script = null
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
